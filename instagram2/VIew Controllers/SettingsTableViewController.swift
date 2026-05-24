@@ -7,44 +7,27 @@
 //
 
 import UIKit
-import Parse
-class SettingsTableViewController: UITableViewController  {
+
+@MainActor
+class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.tableView.dataSource = self
-      self.tableView.delegate = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 
-  @IBAction func onLogoutButton(_ sender: Any) {
-
-    self.performSegue(withIdentifier: "logoutSegue", sender: nil)
-  }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+    @IBAction func onLogoutButton(_ sender: Any) {
+        LocalInstagramService.shared.logout()
+        performSegue(withIdentifier: "logoutSegue", sender: nil)
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
-    }
+    override func numberOfSections(in tableView: UITableView) -> Int { 1 }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 1 }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "logoutCell", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        tableView.dequeueReusableCell(withIdentifier: "logoutCell", for: indexPath)
     }
 
 
