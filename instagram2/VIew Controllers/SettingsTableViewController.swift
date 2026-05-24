@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 class SettingsTableViewController: UITableViewController  {
-  
+
     override func viewDidLoad() {
         super.viewDidLoad()
       self.tableView.dataSource = self
@@ -25,10 +25,6 @@ class SettingsTableViewController: UITableViewController  {
 
     self.performSegue(withIdentifier: "logoutSegue", sender: nil)
   }
-  override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
@@ -42,7 +38,7 @@ class SettingsTableViewController: UITableViewController  {
         return 1
     }
 
-  
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "logoutCell", for: indexPath)
 
@@ -50,7 +46,7 @@ class SettingsTableViewController: UITableViewController  {
 
         return cell
     }
-  
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -68,7 +64,7 @@ class SettingsTableViewController: UITableViewController  {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
